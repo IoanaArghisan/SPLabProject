@@ -3,58 +3,51 @@ import java.util.ArrayList;
 public class Book {
 	private String title;
 	
-	private ArrayList<String> paragraphs = new ArrayList<>();
-	private ArrayList<String> tabels = new ArrayList<>();
-	private ArrayList<String> images = new ArrayList<>();
-	public Book() {
-		// TODO Auto-generated constructor stub
+	private ArrayList<Chapter> chapters = new ArrayList<>();
+	private ArrayList<Author> authors = new ArrayList<>();
+	
+	public Book(String title) {
+		 this.title=title;
 	}
 	
-	Book(String title){
-        this.title=title;
-    }
 	
-	public void createNewParagraph (String name) {
-		paragraphs.add(name);
+	public int createChapter (String name) {
+		Chapter ch =  new Chapter(name);
+		chapters.add(ch);
+		return chapters.indexOf(ch);
 		
 	}
 	
-	public void createNewTable (String name) {
-		tabels.add(name);
+	public Chapter getchapter (int index) {
+		return chapters.get(index);
 		
 	}
 	
-	public void createNewImage (String name) {
-		images.add(name);
+	public void addAuthor (Author author) {
+		authors.add(author);
 		
 	}
 	
 	public void print() {
 		System.out.println("Book name: " + this.title);
-		printParagraph();
-		printTables();
-		printImage();
+		printAuthors();
+		printChapters();
+		
 	}
 	
-	private void printParagraph(){
-        for(String i: paragraphs)
+	private void printChapters(){
+        for(Chapter i: chapters)
         {
-        	System.out.println(i);
+        	i.print();
           
         }
     }
-	private void printTables(){
-        for(String i: tabels)
+	private void printAuthors(){
+        for(Author i: authors)
         {
-        	System.out.println(i);
+        	i.print();
           
         }
     }
-	private void printImage(){
-        for(String i: images)
-        {
-        	System.out.println(i);
-          
-        }
-    }
+
 }
