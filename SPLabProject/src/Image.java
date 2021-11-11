@@ -3,11 +3,7 @@ import java.util.concurrent.TimeUnit;
 public class Image implements Element {
 	private String imageName;
 	
-	
-	public void print() {
-		System.out.println("Image with name: "+this.imageName);
-	}
-	
+
 	public Image(String name){
 		imageName = name;
 		try {
@@ -16,6 +12,10 @@ public class Image implements Element {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void print() {
+		System.out.println("Image with name: "+this.imageName);
 	}
 
 }
