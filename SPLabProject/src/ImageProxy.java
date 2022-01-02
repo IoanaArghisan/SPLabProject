@@ -2,17 +2,29 @@
 public class ImageProxy implements Element {
 	
 	private String name;
-	Image dimension = null;
+	Image realImage = null;
 	
+	public String getName() {
+		return name;
+	}
+
+	public Image getRealImage() {
+		return realImage;
+	}
+
 	public ImageProxy(String name) {
 		this.name = name;
 	}
 	
-	public void print() {
-		if(dimension == null) {
-			dimension = new Image(this.name);
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
+	}
+	
+	public void render() {
+		if(realImage == null) {
+			realImage = new Image(this.name);
 		}
-		dimension.print();
+		realImage.render();
 	}
 
 }

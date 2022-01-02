@@ -6,7 +6,7 @@ public class Author {
 		this.name = name;
 	}
 	
-	public void print() {
+	public void render() {
 		System.out.println("\n"+"Author: "+this.name+"\n");
 	}
 

@@ -7,7 +7,11 @@ public class Paragraph implements Element {
 		this.name = name;
 	}
 	
-	public void print() {
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
+	}
+	
+	public void render() {
 		if(alignStrategy == null) {
 			System.out.println(this.name);
 		}else {
@@ -17,6 +21,14 @@ public class Paragraph implements Element {
 	
 	public void setAlignStrategy(AlignStrategy alignStrategy) {
 		this.alignStrategy = alignStrategy;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public AlignStrategy getAlignStrategy() {
+		return alignStrategy;
 	}
 
 }

@@ -4,6 +4,10 @@ public class Image implements Element {
 	private String imageName;
 	
 
+	public String getImageName() {
+		return imageName;
+	}
+
 	public Image(String name){
 		imageName = name;
 		try {
@@ -14,7 +18,11 @@ public class Image implements Element {
 		
 	}
 	
-	public void print() {
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
+	}
+	
+	public void render() {
 		System.out.println("Image with name: "+this.imageName);
 	}
 

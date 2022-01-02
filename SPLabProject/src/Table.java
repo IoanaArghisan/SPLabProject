@@ -6,7 +6,11 @@ public class Table implements Element {
 		this.name =name;
 	}
 	
-	public void print() {
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
+	}
+	
+	public void render() {
 		System.out.println("Table with name: "+this.name);
 	}
 
